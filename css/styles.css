@@ -1,0 +1,358 @@
+/* Globals */
+body {
+  margin: 0;
+  /* margin: 1px solid red; */
+  font-family: "inter", sans-serif;
+  color: var(--baseColor);
+  background: var(--baseBackground);
+}
+
+:root {
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --facebook: #1683f4;
+  --twitter: hsl(203, 89%, 53%);
+  --instagram-1: hsl(37, 97%, 70%);
+  --instagram-2: hsl(329, 70%, 58%);
+  --youtube: hsl(348, 97%, 39%);
+  --gray: #5f616d;
+  --cardGray: #f0f3fa;
+  --cardTitle: #6f717e;
+  --lightGray: #f8f9fe;
+  --baseColor: #1d2029;
+  --baseBackground: white;
+  --switchSpinner: white;
+  --switch: #5f616d;
+}
+
+/* heaader */
+.header {
+  background: var(--lightGray);
+  padding-bottom: 100px;
+  border-radius: 0 0 20px 20px;
+  padding-top: 2em;
+  /* display: none; */
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.7em;
+}
+
+.header-total {
+  color: var(--gray);
+  margin: 0.5em 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 1.5em;
+}
+/* header */
+
+.wrapper {
+  padding: 0 30px;
+}
+
+.grid {
+  display: grid;
+  grid-row-gap: 25px;
+}
+
+.dark-mode {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked ~ .switch::before {
+  /* border: 1px solid red; */
+  transform: translateX(0);
+}
+
+.switch {
+  /* border: 1px solid red; */
+  height: 40px;
+  display: block;
+  border-radius: 20px;
+  background: var(--switch);
+  width: 80px;
+  padding: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+.switch::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-color: var(--switchSpinner);
+  border-radius: 50%;
+  transform: translateX(40px);
+  transition: 0.3s;
+  will-change: transform;
+}
+
+.top-cards {
+  /* border: 1px solid red; */
+  margin-top: -50px;
+  /* display: none; */
+  margin-bottom: 3em;
+}
+
+/* card */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--cardGray);
+  text-align: center;
+  padding: 1.7em 0;
+  position: relative;
+}
+
+.card:before {
+  content: "";
+  height: 4px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.card.facebook:before {
+  background: var(--facebook);
+}
+
+.card.twitter:before {
+  background: var(--twitter);
+}
+
+.card.instagram:before {
+  background-image: linear-gradient(
+    to right,
+    var(--instagram-1) 0%,
+    var(--instagram-2)
+  );
+}
+
+.card.youtube:before {
+  background: var(--youtube);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cardTitle);
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.card-title img {
+  margin-right: 5px;
+}
+
+.card-followers {
+  /* border: 1px solid green; */
+}
+
+.card-followers-numbers {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.card-followers-title {
+  display: block;
+  text-transform: uppercase;
+  color: var(--cardTitle);
+  letter-spacing: 5px;
+  font-size: 0.75em;
+}
+
+.card-today {
+  margin-top: 10px;
+  color: var(--lime-green);
+  font-size: 0.7em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-today img {
+  margin-right: 5px;
+}
+
+/* overview */
+.overview {
+  /* border: 1px solid red; */
+  /* margin-bottom: 500px; */
+  padding-bottom: 2em;
+}
+
+h2 {
+  color: var(--gray);
+}
+/* overview */
+
+/* card small */
+.card-small {
+  /* border: 1px solid pink; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1em;
+  background: var(--cardGray);
+  border-radius: 8px;
+  padding: 1.7em;
+}
+
+.card-small p {
+  margin: 0;
+}
+.card-small-view {
+  /* border: 1px solid green; */
+  color: var(--cardTitle);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+.card-small-icon {
+  /* border: 1px solid yellow; */
+  text-align: right;
+}
+.card-small-numbers {
+  /* border: 1px solid blue; */
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 0.9;
+}
+.card-small-percentage {
+  /* border: 1px solid purple; */
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: var(--lime-green);
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.card-small-percentage.is-danger {
+  color: var(--bright-red);
+}
+
+.card-small-percentage span {
+  display: flex;
+  align-items: center;
+}
+
+.card-small-percentage img {
+  margin-right: 5px;
+}
+
+/* Responsive */
+@media screen and (min-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+
+  .wrapper {
+    /* max-width: 1440px; */
+    max-width: 1440px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+
+  .header-total {
+    border: none;
+  }
+
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+  }
+}
+
+.is-dark-mode {
+  --baseColor: white;
+  --baseBackground: #1d2029;
+  --cardGray: #252b43;
+  --gray: #8088ad;
+  --lightGray: #1d2029;
+  --cardTitle: #8088ad;
+  --switchSpinner: #262b3e;
+  --switch: linear-gradient(to right, #4796d2 0%, #37ce8f 100%);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  /* body {
+    background: var(--baseBackground);
+    color: var(--baseColor);
+  } */
+
+  :root {
+    --baseColor: white;
+    --baseBackground: #1d2029;
+    --cardGray: #252b43;
+    --gray: #8088ad;
+    --lightGray: #1d2029;
+    --cardTitle: #8088ad;
+    --switchSpinner: #262b3e;
+    --switch: linear-gradient(to right, #4796d2 0%, #37ce8f 100%);
+  }
+  /* 
+  .header {
+    background: var(--lightGray);
+  } */
+
+  /* .dark-mode {
+    color: var(--gray);
+  } */
+  /* 
+  .card {
+    background: var(--cardGray);
+  } */
+
+  /* .card-title {
+    color: var(--gray);
+  } */
+
+  /* .card-followers-title {
+    color: var(--gray);
+  } */
+
+  /* .card-small {
+    background: var(--cardGray);
+  } */
+
+  /* .card-small-view {
+    color: var(--gray);
+  } */
+  /* 
+  .switch {
+    background-image: linear-gradient(to right, #4796d2 0%, #37ce8f 100%);
+  } */
+
+  /* .switch::before {
+    background: #262b3e;
+  } */
+}
